@@ -1,0 +1,4 @@
+= Notes
+
+A modern notetaking webapp that takes advantage of artificial neural networks
+to understand what's being written, while it's being written.
