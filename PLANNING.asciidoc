@@ -1,0 +1,33 @@
+= Notetaking application planning
+Luke San Antonio <lukesanantonio@gmail.com>
+v0.0, 2015-10-18
+
+== Introduction
+* At first looks similar to a word processor, or maybe a featured text editor.
+** The idea here is not to have a bunch of different options but to stay in the
+spirit of simple markup languages like latex and asciidoc - keep to content and
+worry about aesthetic style later.
+
+== User interface / Input
+* Pressing some key combination (something easy since it will be used often)
+would create a large canvas atop the text. This is where the user can draw in a
+character to enter into the text or any supported graph or other object.
+
+== Internal Representation
+Every document or note sheet has a text section that includes all the notes but
+no visual elements (graphs, vector diagrams, etc.)
+
+.Modes:
+. Reference mode
+  * The location in the text where the graph was created (or where the user
+  later specified just includes a link to the object that is located at the end
+  of the text. Possibly as subscript denoting the figure number it is.
+. Inline mode
+  * The graphs are inserted at or alongside the text where it was created or
+  placed afterward.
+
+== Presentation
+After the user is done entering notes, all the data could be exported to a
+standard "intermediate representation" of sorts. The style / aesthetics /
+format of the resulting document could be determined by any number of programs
+consuming this data.
