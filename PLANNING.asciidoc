@@ -31,3 +31,29 @@ After the user is done entering notes, all the data could be exported to a
 standard "intermediate representation" of sorts. The style / aesthetics /
 format of the resulting document could be determined by any number of programs
 consuming this data.
+
+== Current Architecture
+
+The entire system:
+[graphviz, system-diagram, svg]
+....
+digraph system_diagram {
+  rankdir="LR"
+
+  edit [ label = "Editor" ];
+  int_form [ label = "Intermediate Representation" ];
+
+  edit -> int_form -> "HTML Backend"
+  int_form -> "PDF Backend"
+  int_form -> "ODT Backend"
+
+  "Alternative Editors" -> int_form
+}
+....
+
+The editor
+[graphviz, editor-diagram, svg]
+....
+graph editor_diagram {
+}
+....
