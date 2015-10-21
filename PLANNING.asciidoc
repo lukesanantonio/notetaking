@@ -9,11 +9,23 @@ spirit of simple markup languages like latex and asciidoc - keep to content and
 worry about aesthetic style later.
 
 == User interface / Input
-* Pressing some key combination (something easy since it will be used often)
-would create a large canvas atop the text. This is where the user can draw in a
-character to enter into the text or any supported graph or other object.
+.Modes:
+. Touchscreen mode
+  * Accept input from the entire screen.
+. Mouse mode
+  * Pressing a key combination or pressing a button will create a large canvas
+  for the user to draw in a character or diagram.
+  ** Probably some things will keep the canvas showing allowing the user to
+  continue drawing.
 
-== Internal Representation
+For both modes, clicking (or pressing) and moving an object should (by default)
+have text wrap around it.
+
+It would be great to have a mechanism to separate blocks of notes so this same
+movement could be applied to the notes. This would mean more options for the
+user to customize the look, feel, and flow of their notes.
+
+== Internal Representation (File format)
 Every document or note sheet has a text section that includes all the notes but
 no visual elements (graphs, vector diagrams, etc.)
 
@@ -25,6 +37,26 @@ no visual elements (graphs, vector diagrams, etc.)
 . Inline mode
   * The graphs are inserted at or alongside the text where it was created or
   placed afterward.
+
+== Implementation notes:
+Each time the pen lifts up an ANN will check the segmentation of characters and
+try to figure out if the drawing is complete or not. If it is done a result
+will be obtained. This result could possibly be shown to the user for possible
+correction, after a certain amount of time the chosen character will be
+inserted into the document.
+
+****
+Would this neural network be separate from the network detecting characters and
+diagrams? If not, it seems like we would need to train this one what a complete
+character is and what is not by also teaching it every possible drawing /
+character / diagram type.
+****
+
+It should be possible to insert and clean up unknown shapes
+
+****
+Is it possible to pick up on these patterns by the user and automate them?
+****
 
 == Presentation
 After the user is done entering notes, all the data could be exported to a
